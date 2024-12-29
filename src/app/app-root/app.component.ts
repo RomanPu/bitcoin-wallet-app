@@ -14,14 +14,10 @@ import { OnInit, OnDestroy } from '@angular/core';
 export class AppComponent implements OnInit, OnDestroy {
   private userService = inject(UserService)
   private subscriptionUS!: Subscription
+  page = 'home';
 
   ngOnInit(): void {
       this.subscriptionUS = this.userService.loadUser()
-      // .pipe(
-      //   tap(user => {
-      //       console.log('user:', user)
-      //   })
-      // )
         .subscribe({
             error(err) {
                 console.log('err:', err)
@@ -32,5 +28,9 @@ export class AppComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
       this.subscriptionUS?.unsubscribe()
+  }
+
+  onPageSelect(page: string) {
+    this.page = page;
   }
 }

@@ -11,6 +11,7 @@ import { ChartComponent } from './cmps/chart/chart.component';
 import { ContactFilterComponent } from './cmps/contact-filter/contact-filter.component';
 import { ContactListComponent } from './cmps/contact-list/contact-list.component';
 import { ContactPreviewComponent } from './cmps/contact-preview/contact-preview.component';
+import { NavBarComponent } from './cmps/nav-bar/nav-bar.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ContactPreviewComponent } from './cmps/contact-preview/contact-preview.
     ChartComponent,
     ContactFilterComponent,
     ContactListComponent,
-    ContactPreviewComponent
+    ContactPreviewComponent,
+    NavBarComponent
   ],
   imports: [
     BrowserModule,

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-statistic-page',
+  selector: 'statistic-page',
   standalone: false,
   
   templateUrl: './statistic-page.component.html',

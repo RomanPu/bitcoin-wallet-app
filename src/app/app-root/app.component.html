@@ -1,3 +1,5 @@
 
-
-<home-page></home-page>
+<nav-bar (pageSelected)="onPageSelect($event)"></nav-bar>
+<home-page *ngIf="page === 'home'"></home-page>
+<contact-page *ngIf="page === 'contacts'"></contact-page>
+<statistic-page *ngIf="page === 'statistics'"></statistic-page>
