@@ -1,5 +1,6 @@
 
 <nav-bar (pageSelected)="onPageSelect($event)"></nav-bar>
 <home-page *ngIf="page === 'home'"></home-page>
-<contact-page *ngIf="page === 'contacts'"></contact-page>
+<contact-page (deteiledView)="onContactSelected($event)" *ngIf="page === 'contacts'"></contact-page>
 <statistic-page *ngIf="page === 'statistics'"></statistic-page>
+<contact-deteils-page [contactId]="currentContactId!" *ngIf="page === 'deteiled'"></contact-deteils-page>

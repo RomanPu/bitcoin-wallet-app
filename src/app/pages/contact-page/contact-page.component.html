@@ -1,1 +1,3 @@
-<p>contact-page works!</p>
+<div class = "contact-page">
+    <contact-list (deteiledView)="deteiledView.emit($event)" [contacts]="contacts$ | async"></contact-list>
+</div>

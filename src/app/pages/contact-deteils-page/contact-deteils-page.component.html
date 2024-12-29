@@ -1,1 +1,14 @@
-<p>contact-deteils-page works!</p>
+<div *ngIf="contact$ | async as contact" class="deteiled-view">
+    <div class="deteiled-view__header">
+        <h1>{{contact.name}}</h1>
+    </div>
+    <div class="deteiled-view__content">
+        <div class="deteiled-view__content__item">
+        <span>Phone:</span>
+        <span>{{contact.phone}}</span>
+        </div>
+        <div class="deteiled-view__content__item">
+        <span>Email:</span>
+        <span>{{contact.email}}</span>
+        </div>
+    </div>

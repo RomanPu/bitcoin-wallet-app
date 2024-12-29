@@ -3,6 +3,7 @@ import { Subscription } from 'rxjs';
 import { inject } from '@angular/core';
 import { UserService } from '../services/user-service';
 import { OnInit, OnDestroy } from '@angular/core';
+import { ContactService } from '../services/contact.service';
 
 
 @Component({
@@ -11,26 +12,16 @@ import { OnInit, OnDestroy } from '@angular/core';
   standalone: false,
   styleUrl: './app.component.scss'
 })
-export class AppComponent implements OnInit, OnDestroy {
-  private userService = inject(UserService)
-  private subscriptionUS!: Subscription
+export class AppComponent {
   page = 'home';
-
-  ngOnInit(): void {
-      this.subscriptionUS = this.userService.loadUser()
-        .subscribe({
-            error(err) {
-                console.log('err:', err)
-            }
-        }
-      )
-  }
-
-  ngOnDestroy(): void {
-      this.subscriptionUS?.unsubscribe()
-  }
-
+  currentContactId: string | null = null;
+  
   onPageSelect(page: string) {
     this.page = page;
+  }
+
+  onContactSelected(contactId: string) {
+    this.currentContactId = contactId;
+    this.page = 'deteiled';
   }
 }
