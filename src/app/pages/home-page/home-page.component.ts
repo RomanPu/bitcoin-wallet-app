@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { User } from '../../models/user.model';
+import { UserService } from '../../services/user-service';
+import { inject } from '@angular/core';
+import { OnInit } from '@angular/core';
 
 @Component({
   selector: 'home-page',
@@ -8,6 +10,13 @@ import { User } from '../../models/user.model';
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.scss'
 })
-export class HomePageComponent {
-   user: User = {name: 'John Doe', email: '', phone: '', balance: 10000}
+export class HomePageComponent implements OnInit {
+  private userService = inject(UserService)
+  user$ = this.userService.user$
+
+  ngOnInit() {
+    this.userService.loadUser().subscribe({
+      error: (err) => console.error('Error loading user:', err)
+    })
+  }
 }
