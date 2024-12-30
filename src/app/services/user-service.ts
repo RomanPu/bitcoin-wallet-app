@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core'
-import { Observable, BehaviorSubject, throwError, from } from 'rxjs'
-import { tap, retry, catchError, map } from 'rxjs/operators'
-import { storageService } from './async-storage.service'
+import { BehaviorSubject, throwError } from 'rxjs'
 import { User } from '../models/user.model'
 import { HttpErrorResponse } from '@angular/common/http'
 
@@ -29,7 +27,7 @@ export class UserService {
             return this._handleError(new HttpErrorResponse({ error: 'User not found', status: 404 }))
         }
         this._user$.next(user)
-        return this._user$
+        return this.user$
     }
 
     private _handleError(err: HttpErrorResponse) {
@@ -40,4 +38,4 @@ export class UserService {
 
 
 
-const initUser: User = { name: 'John Doe', email: '', phone: '', balance: 10000 }
+const initUser: User = { name: 'John Doe', email: '', phone: '', balance: 10000, currencyCode: 'USD' }

@@ -1,7 +1,6 @@
 import { Component, DestroyRef } from '@angular/core';
 import { inject } from '@angular/core';
 import { ContactService } from '../../services/contact.service';
-import { pipe, tap } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { EventEmitter } from '@angular/core';
 import { Output } from '@angular/core';

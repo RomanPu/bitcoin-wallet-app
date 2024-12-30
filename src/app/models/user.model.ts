@@ -3,4 +3,5 @@ export interface User {
     email: string
     phone: string
     balance: number
+    currencyCode: string
 }
