@@ -14,6 +14,8 @@ import { ContactPreviewComponent } from './cmps/contact-preview/contact-preview.
 import { NavBarComponent } from './cmps/nav-bar/nav-bar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -29,9 +31,11 @@ import { FormsModule } from '@angular/forms';
     NavBarComponent
   ],
   imports: [
+    NgxChartsModule,
     FormsModule,
     BrowserModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
     HttpClientModule
   ],
   providers: [],

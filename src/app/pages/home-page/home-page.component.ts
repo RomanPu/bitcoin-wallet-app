@@ -6,8 +6,6 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { DestroyRef } from '@angular/core';
 import { User } from '../../models/user.model';
 import { BitcoinService } from '../../services/bitcoin.service';
-import { Observable } from 'rxjs';
-import { tap } from 'rxjs/operators';
 
 
 @Component({

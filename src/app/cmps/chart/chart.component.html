@@ -1,1 +1,14 @@
-<p>chart works!</p>
+<ngx-charts-line-chart
+  [view]="[700, 400]"
+  [results]="dataLC$ | async"
+  [legend]="true"
+  [xAxis]="true"
+  [yAxis]="true"
+  [showXAxisLabel]="true"
+  [showYAxisLabel]="true"
+  [xAxisLabel]="'Year'"
+  [yAxisLabel]="'Value'"
+  [animations]="true"
+  [showGridLines]="true"
+  [roundDomains]="true">
+</ngx-charts-line-chart>
