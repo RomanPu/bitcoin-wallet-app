@@ -1,1 +1,3 @@
-<p>contact-filter works!</p>
+<section [style.marginBlock.px]="10" class="pet-filter">
+	<input [(ngModel)]="filterBy.term" (ngModelChange)="onSearchFilterBy($event)"  name="term" type="text" placeholder="Search" />
+</section>

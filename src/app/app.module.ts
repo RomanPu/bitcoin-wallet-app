@@ -13,6 +13,7 @@ import { ContactListComponent } from './cmps/contact-list/contact-list.component
 import { ContactPreviewComponent } from './cmps/contact-preview/contact-preview.component';
 import { NavBarComponent } from './cmps/nav-bar/nav-bar.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { HttpClientModule } from '@angular/common/http';
     NavBarComponent
   ],
   imports: [
+    FormsModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule

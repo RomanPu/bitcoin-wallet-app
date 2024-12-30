@@ -1,3 +1,4 @@
 <div class = "contact-page">
+    <contact-filter></contact-filter>
     <contact-list (deteiledView)="deteiledView.emit($event)" [contacts]="contacts$ | async"></contact-list>
 </div>
