@@ -11,7 +11,7 @@ const ENTITY = 'user'
 })
 export class UserService {
 
-    private _user$ = new BehaviorSubject<User | null>(null)
+    private _user$ = new BehaviorSubject<User>(initUser)
     public user$ = this._user$.asObservable()
 
     constructor() {

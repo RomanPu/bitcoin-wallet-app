@@ -12,5 +12,30 @@ import { ContactService } from '../services/contact.service';
   standalone: false,
   styleUrl: './app.component.scss'
 })
-export class AppComponent {
+export class AppComponent implements OnInit, OnDestroy {
+  private userService = inject(UserService)
+  private contactService = inject(ContactService)
+  private USsubscription!: Subscription
+  private CSsubscription!: Subscription
+
+ngOnInit(): void {
+    this.USsubscription = this.userService.loadUser()
+    .subscribe({
+        error(err) {
+            console.log('err:', err)
+        }
+    })
+    
+    this.CSsubscription = this.contactService.loadContacts()
+    .subscribe({
+        error(err) {
+            console.log('err:', err)
+        }
+    })
+}
+
+  ngOnDestroy(): void {
+      this.USsubscription?.unsubscribe()
+      this.CSsubscription?.unsubscribe()
+  }
 }

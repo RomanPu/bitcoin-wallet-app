@@ -11,12 +11,10 @@ export class BitcoinService {
     constructor(private http: HttpClient) {}
 
     convertToBTC(amount: number, currencyCode: string) {
-        return firstValueFrom(
-            this.http.get(`https://blockchain.info/tobtc?currency=${currencyCode}&value=${amount}`, { responseType: 'text' })
+        return this.http.get(`https://blockchain.info/tobtc?currency=${currencyCode}&value=${amount}`, { responseType: 'text' })
               .pipe(
                 map(response => response.toString()) // Ensure the response is converted to string
-              )
-          );
+     )
     }
 
     getMarketPrice() {
