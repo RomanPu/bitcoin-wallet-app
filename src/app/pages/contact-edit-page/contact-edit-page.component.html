@@ -1,0 +1,41 @@
+<section class="edit-contact-modal" *ngIf="contact$ | async as contact">
+	<pre>{{ contact$ | async | json }}</pre>
+
+	<form #form="ngForm" (ngSubmit)="onSubmit(form)">
+		<h2>Contact Deteils</h2>
+        <input type="hidden" [(ngModel)]="contact._id" name="_id">
+        <input [(ngModel)]="contact.name"
+        name="name"
+        placeholder="Full name"
+        #name="ngModel"
+        required
+            />
+		<p *ngIf="name.touched && name.invalid" class="errors">
+			<span *ngIf="name.errors?.['required']">name is required!</span>
+		</p>
+        <input [(ngModel)]="contact.email"
+        name="email"
+        placeholder="Email"
+        #email="ngModel"
+        required
+        pattern=".*@.*"
+            />
+		<p *ngIf="email.touched && email.invalid" class="errors">
+			<span *ngIf="email.errors?.['required']">email is required!</span>
+            <span *ngIf="email.errors?.['pattern']">email is not valid!</span>
+		</p>
+        <input [(ngModel)]="contact.phone"
+        name="phone"
+        placeholder="Phone"
+        #phone="ngModel"
+        required
+        pattern=".*[0-9].*"
+            />
+        <p *ngIf="phone.touched && phone.invalid" class="errors">
+            <span *ngIf="phone.errors?.['required']">phone is required!</span>
+            <span *ngIf="phone.errors?.['pattern']">phone is not valid!</span>
+        </p>
+        <button type="submit" [disabled]="form.invalid">Save</button>
+	</form>
+    <a routerLink="/contact">Back</a>
+</section>

@@ -1,4 +1,6 @@
 <div class = "contact-page">
     <contact-filter></contact-filter>
-    <contact-list (deteiledView)="deteiledView.emit($event)" [contacts]="contacts$ | async"></contact-list>
+    <a routerLink="./edit">Add</a>
+    <contact-list [contacts]="contacts$ | async"></contact-list>
 </div>
+<router-outlet />

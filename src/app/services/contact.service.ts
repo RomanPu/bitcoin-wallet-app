@@ -70,11 +70,13 @@ export class ContactService {
     }
 
     public saveContact(contact: Contact) {
+        console.log('contact:', contact)
         return contact._id ? this._updateContact(contact) : this._addContact(contact)
     }
 
-    public getEmptyContact() {
+    public getEmptyContact(): Contact {
         return {
+            _id: '',
             name: '',
             email: '',
             phone: ''

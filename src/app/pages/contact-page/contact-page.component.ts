@@ -13,20 +13,8 @@ import { Output } from '@angular/core';
   styleUrls: ['./contact-page.component.scss']
 })
 export class ContactPageComponent {
-  @Output() deteiledView = new EventEmitter<string>()
-
+  
   private contactService = inject(ContactService)
   private destroyRef = inject(DestroyRef)
   contacts$ = this.contactService.contacts$
-
-
-  ngOnInit() {
-    this.contactService.loadContacts()
-    .pipe(
-      takeUntilDestroyed(this.destroyRef)
-    )
-    .subscribe({
-      error: (err) => console.error('Error loading contacts:', err)
-    })
-  }
 }

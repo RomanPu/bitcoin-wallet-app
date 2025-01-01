@@ -7,11 +7,22 @@ import { StatisticPageComponent } from './pages/statistic-page/statistic-page.co
 import { authGuard } from './guards/auth.guard';
 import { ContactDeteilsPageComponent } from './pages/contact-deteils-page/contact-deteils-page.component';
 import { contactResolver } from './resolvers/contact.resolver';
+import { ContactEditPageComponent } from './pages/contact-edit-page/contact-edit-page.component';
 
 const routes: Routes = [
   { path: 'home', component: HomePageComponent },
   { path: 'contact', component: ContactPageComponent,
-    canActivate: [authGuard],
+    canActivate: [authGuard],  children: [
+      { path: 'edit',
+        component: ContactEditPageComponent, 
+        resolve: { contact: contactResolver }
+      },
+      {
+          path: 'edit/:contactId',
+          component: ContactEditPageComponent,
+          resolve: { contact: contactResolver }
+      },
+  ]
   },
   {
     path: 'contact/:contactId',
