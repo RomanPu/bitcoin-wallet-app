@@ -16,6 +16,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PageNotFoundComponent } from './cmps/page-not-found/page-not-found.component';
+import { LoaderComponent } from './cmps/loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ContactFilterComponent,
     ContactListComponent,
     ContactPreviewComponent,
-    NavBarComponent
+    NavBarComponent,
+    PageNotFoundComponent,
+    LoaderComponent
   ],
   imports: [
     NgxChartsModule,
