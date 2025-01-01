@@ -10,10 +10,6 @@ import { Input, Output, EventEmitter } from '@angular/core';
   styleUrl: './contact-preview.component.scss'
 })
 export class ContactPreviewComponent {
-  @Input() contact: Contact | null = null
+  @Input() contact!: Contact 
   @Output() deteiledView = new EventEmitter<string>()
-
-  onDeteiledView() {
-    this.deteiledView.emit(this.contact!._id)
-  }
 }

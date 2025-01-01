@@ -1,11 +1,10 @@
-import { Component, ErrorHandler, inject, Input } from '@angular/core';
+import { Component,  inject } from '@angular/core';
 import { ContactService } from '../../services/contact.service';
-import { OnInit } from '@angular/core';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { DestroyRef } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Contact } from '../../models/contact.model';
-
+import { map } from 'rxjs/operators';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'contact-deteils-page',
@@ -14,20 +13,9 @@ import { Contact } from '../../models/contact.model';
   templateUrl: './contact-deteils-page.component.html',
   styleUrl: './contact-deteils-page.component.scss'
 })
-export class ContactDeteilsPageComponent implements OnInit {
-  @Input() contactId!: string;
+export class ContactDeteilsPageComponent  {
+  private route = inject(ActivatedRoute)
 
-  private destroyRef = inject(DestroyRef);
-  private contactService = inject(ContactService);
-  public contact$: Observable<Contact> | null = null;
+  contact$: Observable<Contact> = this.route.data.pipe(map(data => data['contact']))
 
-  ngOnInit() {
-  this.contact$ = this.contactService.getContactById(this.contactId)
-  .pipe(
-      takeUntilDestroyed(this.destroyRef)
-    )
-    // this.contact$.subscribe(contact => {
-    //   console.log('contact:', contact);
-    // });
-  }
 }
