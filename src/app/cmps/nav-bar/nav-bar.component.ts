@@ -9,10 +9,5 @@ import { Output, EventEmitter } from '@angular/core';
   styleUrl: './nav-bar.component.scss'
 })
 export class NavBarComponent {
-  @Output() pageSelected = new EventEmitter<string>();
-
-  onSelectPage(page: string) {
-    this.pageSelected.emit(page);
-  }
 }
 

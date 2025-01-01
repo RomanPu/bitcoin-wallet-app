@@ -1,5 +1,9 @@
 <div class="nav-bar">
-    <button (click)="onSelectPage('home')">Home</button>
-    <button (click)="onSelectPage('contacts')">Contacts</button>
-    <button (click)="onSelectPage('statistics')">Stats</button>
+    <a 
+    routerLink="/home"
+    routerLinkActive="active"
+    [routerLinkActiveOptions]="{ exact: true }"
+    >Home</a>
+    <a routerLink="/contact" routerLinkActive="active">Contacts</a>
+    <a routerLink="/stat" routerLinkActive="active">Stats</a>
 </div>

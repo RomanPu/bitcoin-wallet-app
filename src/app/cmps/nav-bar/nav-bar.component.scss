@@ -1,0 +1,10 @@
+a {
+    &:not(:last-child) {
+        margin-right: 10px;
+    }
+
+    &.active {
+        color: brown;
+        font-weight: bold;
+    }
+}

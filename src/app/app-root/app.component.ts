@@ -13,15 +13,4 @@ import { ContactService } from '../services/contact.service';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  page = 'home';
-  currentContactId: string | null = null;
-  
-  onPageSelect(page: string) {
-    this.page = page;
-  }
-
-  onContactSelected(contactId: string) {
-    this.currentContactId = contactId;
-    this.page = 'deteiled';
-  }
 }

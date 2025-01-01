@@ -1,11 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomePageComponent } from './pages/home-page/home-page.component';
+import { PageNotFoundComponent } from './cmps/page-not-found/page-not-found.component';
+import { ContactPageComponent } from './pages/contact-page/contact-page.component';
+import { StatisticPageComponent } from './pages/statistic-page/statistic-page.component';
 
 const routes: Routes = [
   { path: 'home', component: HomePageComponent },
+  { path: 'contact', component: ContactPageComponent },
+  { path: 'stat', component: StatisticPageComponent },
   { path: '', pathMatch: 'full', redirectTo: 'home' },
-  // { path: '**', component: PageNotFoundComponent }
+  { path: '**', component: PageNotFoundComponent }
 ];
 
 @NgModule({
