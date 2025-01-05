@@ -1,7 +1,8 @@
-import { Injectable } from '@angular/core'
+import { inject, Injectable } from '@angular/core'
 import { BehaviorSubject, throwError } from 'rxjs'
 import { User } from '../models/user.model'
 import { HttpErrorResponse } from '@angular/common/http'
+import { Contact } from '../models/contact.model'   
 
 
 const ENTITY = 'user'
@@ -30,6 +31,18 @@ export class UserService {
         return this.user$
     }
 
+    public createMove(contact: Contact, move: { toId: string, amount: number }) {
+        var user = this._user$.value
+        const moveData = {
+            toId: move.toId,
+            to: contact.name,
+            at: Date.now(),
+            amount: move.amount
+        }
+        this._user$.next({ ...user, balance: user.balance - move.amount,
+            moves: [...user.moves, moveData] })
+        localStorage.setItem(ENTITY, JSON.stringify(this._user$.value))
+    }
     public signUp(userCradentials: {name: string, email: string, phone: string}) { 
         const user = { ...initUser, ...userCradentials }     
         localStorage.setItem(ENTITY, JSON.stringify(user))

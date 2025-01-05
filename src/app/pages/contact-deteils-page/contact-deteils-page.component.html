@@ -12,5 +12,16 @@
         <span>{{contact.email}}</span>
         </div>
     </div>
+    <form>
+        <input type="number" [(ngModel)]="transfer" name="transfer" placeholder="">
+        <button (click)="Transfer()">Transfer</button>
+    </form>
+    <ul>
+        <li *ngFor="let transfer of transactions">
+            <span>{{transfer.at}}</span>
+            <span>{{transfer.amount}}</span>
+        </li>
+    </ul>
+
     <a routerLink="/contact">Back</a>
 </div>
