@@ -8,18 +8,22 @@ import { authGuard } from './guards/auth.guard';
 import { ContactDeteilsPageComponent } from './pages/contact-deteils-page/contact-deteils-page.component';
 import { contactResolver } from './resolvers/contact.resolver';
 import { ContactEditPageComponent } from './pages/contact-edit-page/contact-edit-page.component';
+import { SignupComponent } from './pages/signup/signup.component';
 
 const routes: Routes = [
-  { path: 'home', component: HomePageComponent },
+  { path: 'signup', component: SignupComponent },
+  { path: 'home', component: HomePageComponent,canActivate: [authGuard], },
   { path: 'contact', component: ContactPageComponent,
     canActivate: [authGuard],  children: [
       { path: 'edit',
-        component: ContactEditPageComponent, 
+        component: ContactEditPageComponent,
+        canActivate: [authGuard], 
         resolve: { contact: contactResolver }
       },
       {
           path: 'edit/:contactId',
           component: ContactEditPageComponent,
+          canActivate: [authGuard],
           resolve: { contact: contactResolver }
       },
   ]
@@ -30,7 +34,9 @@ const routes: Routes = [
     canActivate: [authGuard],
     resolve: { contact: contactResolver }
   },
-  { path: 'stat', component: StatisticPageComponent },
+  { path: 'stat', component: StatisticPageComponent,
+    canActivate: [authGuard],
+   },
   { path: '', pathMatch: 'full', redirectTo: 'home' },
   { path: '**', component: PageNotFoundComponent }
 ];

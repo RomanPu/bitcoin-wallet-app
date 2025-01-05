@@ -4,4 +4,12 @@ export interface User {
     phone: string
     balance: number
     currencyCode: string
+    moves: Move[]
+}
+
+export interface Move {
+    toId: string
+    to: string
+    at: number
+    amount: number
 }

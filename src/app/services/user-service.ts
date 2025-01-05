@@ -14,20 +14,26 @@ export class UserService {
     private _user$ = new BehaviorSubject<User>(initUser)
     public user$ = this._user$.asObservable()
 
-    constructor() {
-        const user = JSON.parse(localStorage.getItem(ENTITY) || 'null')
-        if (!user || user.length === 0) {
-            localStorage.setItem(ENTITY, JSON.stringify(initUser))
-        }
-    }
+    // constructor() {
+    //     const user = JSON.parse(localStorage.getItem(ENTITY) || 'null')
+    //     if (!user || user.length === 0) {
+    //         localStorage.setItem(ENTITY, JSON.stringify(initUser))
+    //     }
+    // }
 
     public loadUser() {
         const user = JSON.parse(localStorage.getItem(ENTITY) || 'null')
-        if (!user) {
-            return this._handleError(new HttpErrorResponse({ error: 'User not found', status: 404 }))
-        }
+        // if (!user) {
+        //     return this._handleError(new HttpErrorResponse({ error: 'User not found', status: 404 }))
+        // }
         this._user$.next(user)
         return this.user$
+    }
+
+    public signUp(userCradentials: {name: string, email: string, phone: string}) { 
+        const user = { ...initUser, ...userCradentials }     
+        localStorage.setItem(ENTITY, JSON.stringify(user))
+        this._user$.next(user)
     }
 
     private _handleError(err: HttpErrorResponse) {
@@ -38,4 +44,4 @@ export class UserService {
 
 
 
-const initUser: User = { name: 'John Doe', email: '', phone: '', balance: 10000, currencyCode: 'USD' }
+const initUser: User = { name: 'John Doe', email: '', phone: '', balance: 10000, currencyCode: 'USD', moves: [] }

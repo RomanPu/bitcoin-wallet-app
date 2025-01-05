@@ -10,7 +10,7 @@ export const authGuard: CanActivateFn = (route, state) => {
   return userService.user$.pipe(
       delay(100),
       map(user => {
-          return !!user || router.createUrlTree(['/home'])
+          return !!user || router.createUrlTree(['/signup'])
       })
   )
 };
