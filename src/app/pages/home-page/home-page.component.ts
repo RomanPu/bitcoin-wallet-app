@@ -8,6 +8,7 @@ import { User } from '../../models/user.model';
 import { BitcoinService } from '../../services/bitcoin.service';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
+import { ChangeDetectionStrategy } from '@angular/core';
 
 
 @Component({
@@ -15,7 +16,8 @@ import { tap } from 'rxjs/operators';
   standalone: false,
   
   templateUrl: './home-page.component.html',
-  styleUrl: './home-page.component.scss'
+  styleUrl: './home-page.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HomePageComponent {
   private userService = inject(UserService)
