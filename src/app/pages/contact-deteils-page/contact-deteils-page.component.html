@@ -17,8 +17,8 @@
         <button (click)="Transfer()">Transfer</button>
     </form>
     <ul>
-        <li *ngFor="let transfer of transactions">
-            <span *ngIf="transfer.at | date as at">{{at}}</span>
+        <li *ngFor="let transfer of (transactions | selectBy: 'toId': contact._id: 3)">
+            <span *ngIf="transfer.at as at">{{at | date}}</span>
             <span>{{transfer.amount}}</span>
         </li>
     </ul>

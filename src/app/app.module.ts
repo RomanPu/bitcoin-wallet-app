@@ -21,6 +21,7 @@ import { LoaderComponent } from './cmps/loader/loader.component';
 import { ContactEditPageComponent } from './pages/contact-edit-page/contact-edit-page.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SelectByPipe } from './pipes/select-by-id.pipe';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     PageNotFoundComponent,
     LoaderComponent,
     ContactEditPageComponent,
-    SignupComponent
+    SignupComponent,
+    SelectByPipe
   ],
   imports: [
     NgxChartsModule,
