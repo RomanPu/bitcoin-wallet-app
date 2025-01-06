@@ -11,5 +11,5 @@ import { Input, Output, EventEmitter } from '@angular/core';
 })
 export class ContactPreviewComponent {
   @Input() contact!: Contact 
-  @Output() deteiledView = new EventEmitter<string>()
+  @Output() delete = new EventEmitter<string>()
 }

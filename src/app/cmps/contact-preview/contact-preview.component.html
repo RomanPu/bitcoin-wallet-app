@@ -4,7 +4,7 @@
     <div class="contact-preview__email">{{contact.email}}</div>
     <div class="contact-preview__actions">
     <button [routerLink]="['./edit', contact._id]" >Edit</button>
-    <button >Delete</button>
+    <button (click)="delete.emit(contact._id)">Delete</button>
     </div>
 </div>
 

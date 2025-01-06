@@ -23,10 +23,8 @@ export class ContactDeteilsPageComponent  {
   contact$: Observable<Contact> = this.route.data.pipe(map(data => data['contact']))
 
   Transfer() {
-    console.log('Transfering:', this.transfer)
     this.contact$.subscribe(contact => {
       this.userService.createMove(contact, { toId: contact._id, amount: this.transfer })
     })
   }
-
 }

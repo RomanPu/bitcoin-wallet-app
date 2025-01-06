@@ -1,6 +1,6 @@
 <div class = "contact-page">
     <contact-filter></contact-filter>
     <a routerLink="./edit">Add</a>
-    <contact-list [contacts]="contacts$ | async"></contact-list>
+    <contact-list (delete)="onDelete($event)" [contacts]="contacts$ | async"></contact-list>
 </div>
 <router-outlet />

@@ -11,4 +11,5 @@ import { Input, Output, EventEmitter } from '@angular/core';
 })
 export class ContactListComponent {
   @Input() contacts: Contact[] | null = null
+  @Output() delete = new EventEmitter<string>();
 }

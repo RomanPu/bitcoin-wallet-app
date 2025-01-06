@@ -17,4 +17,15 @@ export class ContactPageComponent {
   private contactService = inject(ContactService)
   private destroyRef = inject(DestroyRef)
   contacts$ = this.contactService.contacts$
+
+  onDelete(contactId: string) {
+    console.log('Deleting contact:', contactId)
+    this.contactService.deleteContact(contactId)
+    .pipe(takeUntilDestroyed(this.destroyRef))
+    .subscribe({
+      error: (err) => {
+        console.error('Error deleting contact:', err)
+      }
+    })
+  }
 }
