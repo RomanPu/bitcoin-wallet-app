@@ -18,7 +18,7 @@
     </form>
     <ul>
         <li *ngFor="let transfer of transactions">
-            <span>{{transfer.at}}</span>
+            <span *ngIf="transfer.at | date as at">{{at}}</span>
             <span>{{transfer.amount}}</span>
         </li>
     </ul>
