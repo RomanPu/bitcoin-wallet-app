@@ -1,0 +1,41 @@
+@import '../../../assets/scss/setup/variables.scss';
+
+:host{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    h1 {
+        margin-block-start: 20px;
+    }
+
+    form{
+        margin-block-start: 20px;
+        width: 250px;
+        label{
+            margin-block-start: 10px;
+            margin-inline-end: auto;
+            font-size: 12px;
+        }
+
+        input{
+            padding: 5px;
+            border-radius: 5px;
+            border: 1px solid $dark-grey;
+            width: 100%;
+        }
+
+        .div{
+            margin-top: 10px;
+        }
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        button{
+            margin-block-start: 40px;
+        }
+    }
+}
