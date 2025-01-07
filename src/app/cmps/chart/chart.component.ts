@@ -18,9 +18,13 @@ export class ChartComponent implements OnInit {
   ngOnInit(): void {
     (async () => {
       try {
-        const temp: any = await this.bitcoinService.getTradeVolume();
+        const temp: any = await this.bitcoinService.getMarketPrice();
         const updatedSeries = temp.values.map((item: any) => ({
-          name: item.x.toString(),
+          name: new Date(item.x * 1000).toLocaleDateString('en-US', {
+            month: 'short',
+            day: 'numeric',
+            year: 'numeric'
+          }),
           value: Number(item.y)
         }));
         this.dataLC$.next([{ name: 'Bitcoin', series: updatedSeries }]);

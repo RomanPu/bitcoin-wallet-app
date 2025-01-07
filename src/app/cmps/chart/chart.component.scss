@@ -1,0 +1,13 @@
+@import "../../../assets/scss/setup/variables.scss";
+:host{
+    .chart-container {
+        margin-block-start: 10px;
+        width: 300px;
+        height: 300px;
+        padding-inline: 30px;
+        overflow-x: scroll;
+        overflow-y: hidden;
+        background-color:white;
+        border-radius: 10px;
+      }
+}
