@@ -25,7 +25,9 @@ export class ContactDeteilsPageComponent  {
 
   Transfer() {
     this.contact$.subscribe(contact => {
+      if (!this.transfer) return
       this.userService.createMove(contact, { toId: contact._id, amount: this.transfer })
+      this.transfer = 0
     })
   }
 }

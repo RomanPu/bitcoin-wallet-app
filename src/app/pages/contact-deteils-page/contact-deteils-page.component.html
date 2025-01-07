@@ -1,8 +1,10 @@
 <div *ngIf="contact$ | async as contact" class="deteiled-view">
-    <div class="deteiled-view__header">
+    <a routerLink="/contact">Back</a>
+    <img src="assets/img/contact.png" alt="contact image" class="contact-preview__img">
+    <div class="deteiled-view-header">
         <h1>{{contact.name}}</h1>
     </div>
-    <div class="deteiled-view__content">
+    <div class="deteiled-view-content">
         <div class="deteiled-view__content__item">
         <span>Phone:</span>
         <span>{{contact.phone}}</span>
@@ -12,16 +14,19 @@
         <span>{{contact.email}}</span>
         </div>
     </div>
-    <form>
-        <input type="number" [(ngModel)]="transfer" name="transfer" placeholder="">
-        <button (click)="Transfer()">Transfer</button>
-    </form>
-    <ul>
-        <li *ngFor="let transfer of (transactions | selectBy: 'toId': contact._id: 3)">
-            <span *ngIf="transfer.at as at">{{at | date}}</span>
-            <span>{{transfer.amount}}</span>
-        </li>
-    </ul>
-
-    <a routerLink="/contact">Back</a>
+    <div class = "transfer-menu">
+        <form>
+            <input type="number" [(ngModel)]="transfer" name="transfer" placeholder="">
+            <button (click)="Transfer()">Transfer</button>
+        </form>
+    </div>
+    <h2>Transactions</h2>
+    <div class = "simple-list">
+        <ul>
+            <li *ngFor="let transfer of (transactions | selectBy: 'toId': contact._id: 5)">
+                <span *ngIf="transfer.at as at">{{at | date}}</span>
+                <span>{{transfer.amount}}</span>
+            </li>
+        </ul>
+    </div>
 </div>

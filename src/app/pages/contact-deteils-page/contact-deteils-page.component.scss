@@ -1,0 +1,79 @@
+
+@import "../../../assets/scss/setup/variables.scss";
+:host{
+    margin-block-start: 5px;
+    .deteiled-view{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+
+        a{
+            margin-inline-end: auto;
+        }
+        img{
+            background-color: $dark-grey;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+        }
+
+        .deteiled-view-header{
+            margin-block-start: 10px;
+        }
+
+        .deteiled-view-content{
+            margin-block-start: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .transfer-menu{
+            width: 100%;
+            form{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                input{
+                    width: 100px;
+                    padding: 10px 5px;
+                    border-radius: 5px;
+                    background-color: $dark-grey;
+                    color: white;
+                    margin-inline-start: 20px;
+                    height: 100%;
+                    border: 0;
+                }
+
+                button{
+                    width: 100px;
+                    margin-inline-end: 20px;
+                }
+            }
+            margin-block-start: 20px;
+        }
+
+        h2{
+            margin-block-start: 10px;
+            font-size: 16px;
+        }
+
+
+        .simple-list{
+            ul{
+                margin-block: 10px 20px;
+                height: 100px;
+                min-width: 130px;
+                max-width: 100%;
+                li{
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                }
+            }
+        }
+    }
+}
