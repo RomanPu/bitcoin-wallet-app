@@ -1,7 +1,9 @@
 <ng-container *ngIf="user$ | async as user">
     <h1>{{user.name}}</h1>
-    <div>
+    <div class="balance">
+        <h2>Balance</h2>
         <p>{{user.currencyCode}}: {{user.balance}}</p>
         <p>BTC: {{btcValue$ | async}}</p>
     </div>
+    <img src="assets\img\bitcoin.png" alt="BTC" />
 </ng-container>

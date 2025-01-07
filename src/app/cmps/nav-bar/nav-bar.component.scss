@@ -1,10 +1,20 @@
-a {
-    &:not(:last-child) {
-        margin-right: 10px;
-    }
+@import '../../../assets/scss/setup/variables';
 
-    &.active {
-        color: brown;
-        font-weight: bold;
+:host {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: $navHeight;
+
+    a {
+        &:not(:last-child) {
+            margin-right: 10px;
+        }
+    
+        &.active {
+            color: brown;
+            font-weight: bold;
+        }
     }
 }
+
