@@ -1,0 +1,18 @@
+:host{
+    .contact-page-header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-block-end: 20px;
+
+        a{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 30px;
+            width: 60px;
+            background-color: #9f2525;
+            border-radius: 50px;
+        }
+    }
+}

@@ -18,6 +18,26 @@
     grid-gap: 10px;
 }
 
+.simple-list{
+    ul{
+        list-style-type: none;
+        padding-inline-start: 0;
+        overflow-y: auto;
+        height: 300px;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        -ms-overflow-style: none;  
+        scrollbar-width: none;  
+
+        li{
+            margin-block-end: 10px;
+        }
+    }
+}
+
 .fixed-center {
     position: fixed;
     z-index: 100;
