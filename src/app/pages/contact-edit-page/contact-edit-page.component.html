@@ -1,8 +1,6 @@
 <section class="edit-contact-modal" *ngIf="contact$ | async as contact">
-	<pre>{{ contact$ | async | json }}</pre>
-
+    <h1>Contact Deteils</h1>
 	<form #form="ngForm" (ngSubmit)="onSubmit(form)">
-		<h2>Contact Deteils</h2>
         <input type="hidden" [(ngModel)]="contact._id" name="_id">
         <input [(ngModel)]="contact.name"
         name="name"
@@ -35,7 +33,9 @@
             <span *ngIf="phone.errors?.['required']">phone is required!</span>
             <span *ngIf="phone.errors?.['pattern']">phone is not valid!</span>
         </p>
-        <button type="submit" [disabled]="form.invalid">Save</button>
+        <div class="actions">
+            <button type="submit" [disabled]="form.invalid">Save</button>
+            <a routerLink="/contact">Back</a>
+        </div>
 	</form>
-    <a routerLink="/contact">Back</a>
 </section>
