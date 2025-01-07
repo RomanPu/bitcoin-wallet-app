@@ -17,7 +17,7 @@ import { ChangeDetectionStrategy } from '@angular/core';
 export class ContactDeteilsPageComponent  {
   private route = inject(ActivatedRoute)
   private userService = inject(UserService)
-  public transfer = 0
+  public transfer: number | null = null
   public transactions: Move[] = []
 
   user$ = this.userService.user$.subscribe(user => this.transactions = user.moves)
@@ -27,7 +27,7 @@ export class ContactDeteilsPageComponent  {
     this.contact$.subscribe(contact => {
       if (!this.transfer) return
       this.userService.createMove(contact, { toId: contact._id, amount: this.transfer })
-      this.transfer = 0
+      this.transfer = null
     })
   }
 }

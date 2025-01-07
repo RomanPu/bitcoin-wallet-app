@@ -1,7 +1,6 @@
 
 @import "../../../assets/scss/setup/variables.scss";
 :host{
-    margin-block-start: 5px;
     .deteiled-view{
         display: flex;
         align-items: center;
@@ -46,6 +45,12 @@
                     margin-inline-start: 20px;
                     height: 100%;
                     border: 0;
+                    text-indent: 10px;
+
+                    &::placeholder {
+                        color: white;
+                        opacity: 0.7;
+                    }
                 }
 
                 button{
