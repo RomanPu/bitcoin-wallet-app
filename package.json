@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "clean": "rimraf dist",
-    "deploy": "npm run clean && ng build --configuration=production --base-href=/bitcoin-wallet-app/ && npx gh-pages -d dist/browser",
+    "build:prod": "npm run clean && ng build --configuration=production",
+    "deploy": "npm run build:prod && npx gh-pages -d dist/browser --dest .",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
