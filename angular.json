@@ -25,7 +25,7 @@
           "builder": "@angular-devkit/build-angular:application",
           "options": {
             "baseHref": "/bitcoin-wallet-app/",
-            "outputPath": "dist/my-angular-app",
+            "outputPath": "dist/bitcoin-wallet-app",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
