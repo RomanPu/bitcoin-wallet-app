@@ -27,7 +27,7 @@
             "baseHref": "/bitcoin-wallet-app/",
             "outputPath": "dist/bitcoin-wallet-app",
             "index": "src/index.html",
-            "browser": "src/main.ts",
+            "browser": "dist/bitcoin-wallet-app",
             "polyfills": [
               "zone.js"
             ],
@@ -44,6 +44,15 @@
               "src/styles.scss",
               "src/assets/scss/global.scss"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src",
+                "src/assets/scss",
+                "src/assets/scss",
+                "src/assets/scss/setup",
+                "src/assets/scss/basics"
+              ]
+            },
             "scripts": []
           },
           "configurations": {

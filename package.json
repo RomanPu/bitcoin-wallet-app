@@ -2,7 +2,8 @@
   "name": "bitcoin-wallet-app",
   "version": "0.0.0",
   "scripts": {
-    "deploy": "ng build && npx gh-pages -d dist/bitcoin-wallet-app",
+    "clean": "rimraf dist",
+    "deploy": "npm run clean && ng build --configuration=production --base-href=/bitcoin-wallet-app/ && npx gh-pages -d dist/browser",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
@@ -22,6 +23,7 @@
     "@angular/router": "^19.0.0",
     "@swimlane/ngx-charts": "^21.1.2",
     "d3": "^7.9.0",
+    "rm": "^0.1.8",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.15.0"
@@ -38,6 +40,7 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
+    "rimraf": "^6.0.1",
     "typescript": "~5.6.2"
   }
 }
