@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild, ElementRef} from '@angular/core';
 import { BitcoinService } from '../../services/bitcoin.service';
 import { inject } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
@@ -9,11 +9,22 @@ import { BehaviorSubject } from 'rxjs';
   templateUrl: './chart.component.html',
   styleUrl: './chart.component.scss'
 })
-export class ChartComponent implements OnInit {
+export class ChartComponent implements OnInit, AfterViewInit {
+  @ViewChild('chartContainer') chartContainer!: ElementRef;
+
   bitcoinService = inject(BitcoinService);
   dataLC$ = new BehaviorSubject<{ name: string, series: { name: string, value: number }[] }[]>([
     { name: 'Bitcoin', series: [] }
   ]);
+
+  ngAfterViewInit() {
+    const container = this.chartContainer.nativeElement;
+    console.log(container);
+
+    setTimeout(() => {
+      container.scrollLeft = (container.scrollWidth - container.clientWidth) / 2;
+    }, 0);
+  }
 
   ngOnInit(): void {
     (async () => {

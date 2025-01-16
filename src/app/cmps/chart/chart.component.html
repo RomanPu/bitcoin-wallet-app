@@ -1,6 +1,6 @@
-<div class="chart-container">
+<div class="chart-container" #chartContainer>
   <ngx-charts-line-chart
-    [view]="[400,300]"
+    [view]="[0,300]"
     [results]="dataLC$ | async"
     [legend]="false"
     [xAxis]="true"
