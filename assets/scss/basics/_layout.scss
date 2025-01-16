@@ -1,3 +1,6 @@
+@import "../setup/variables.scss";
+@import "../setup/mixins.scss";
+
 .main-layout{
     display: flex;
     align-items: center;
@@ -5,6 +8,10 @@
     flex-direction: column;
     min-height: 450px;
     height: 100%;
+    @include for-mobile-layout{
+        height: calc(100vh - 100px);
+    }
+
     width: 350px;
     background-color: black;
     font-family: 'Roboto', sans-serif;
@@ -25,6 +32,9 @@
         padding-inline-start: 0;
         overflow-y: auto;
         height: 300px;
+        @include for-mobile-layout{
+            height: calc(100vh - 250px);
+        }
 
         &::-webkit-scrollbar {
             display: none;
